@@ -1,0 +1,23 @@
+1. O Node é um ambiente de execução JavaScript.
+2. O Node usa a engine do Chrome(V8) p/ executar e compilar código JavaScript.
+3. O Node é single thread e non-blocking. 
+  3.1. O Node é single thread por ter uma única thread principal
+  3.2. O Node é non-blocking por suportar múltiplas requisições simultâneas.
+  3.3. Processo:
+    3.3.1. request => event loop => call stack => event loop => response (síncrono)
+    3.3.2. request => event loop => event queue => call stack => event loop => response (assíncrono)
+4. NPM - Gerenciador de pacotes Node.
+  4.1. Módulos.
+    4.1.1. Módulos são unidadea fundamentais de organização de código.
+  4.2. Bibliotecas:
+    4.2.1. Bibliotecas são coleções de um ou mais módulos.
+  4.3.  Framework:
+    4.3.1.  Framework são coleções de bibliotecas.
+5. HTTP - Hypertext Transfer Protocol
+  5.1. Define como os clientes e servidores se comunicam entre si. (get-post-put-delete-patch)
+  5.2. Métodos HTTP:
+    5.2.1. GET: Solicita a transferência de uma representação do rescurso específico.
+    5.2.2. POST: Envia dados p/ o servidor a serem processados.
+    5.2.3. PUT: Envia dados p/ o servidor p/ substituir a representação do recurso de destino pela representação fornecida na carga da requisição. Se o recurso ñ existir o servidor o criará.
+    5.2.4. DELETE: Solicita que o servidor remova o recurso especificado.
+    5.2.5. PATCH: Aplica modificações parciais ao recurso especificado. 
