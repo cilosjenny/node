@@ -1,6 +1,6 @@
-import http from 'node:http';
-//pra dizer q é um modulo nativo do node ('node:http')
-
+import http from 'node:http';//pra dizer q é um modulo nativo do node ('node:http')
+import { bodyHeandler } from './middlewares/bodyHandler.js';// precisa colocar a importação do arquivo
+import { routeHeandler } from './middlewares/routeHandler.js';
 
 // const server = http.createServer((request, response) => {
 //   const { method, url } = request;
@@ -9,25 +9,16 @@ import http from 'node:http';
 
 // });
 
-const server = http.createServer((request, response) => {
-  const { method, url } = request;
-
-  if(method === 'GET' && url === '/produtos'){
-    return response.writeHead(200).end('Lista de produtos.');
-  }
-
-  if (method ===  'POST'  && url === '/produtos'){
-    return response.writeHead(201).end('Proutos criados com sucesso.')
-  }
-
-  return response.writeHead(400).end('Erro: o servidor não pôde processar a requisição.')
-
-});  
-
 const port = 3000;
+
+//ta dizendo q é assincrona
+const server = http.createServer(async (request, response) => {
+  await bodyHeandler(request, response);
+  routeHeandler(request,response);
+});
 
 server.listen(port, () => {
   console.log(`Rodando em http://localhost:${port}`);
-  
+
 });
 
