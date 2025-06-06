@@ -9,7 +9,7 @@ export const bodyHeandler = async (request, response) => {
   }
 
   try {
-    const data = Buffer.concat(buffers).toString();//tranforma em string e mostra pro cliente
+    const data = Buffer.concat(buffers).toString();//transforma em string e mostra pro cliente
     request.body = JSON.parse(data);
 
   } catch (error) {
@@ -17,3 +17,4 @@ export const bodyHeandler = async (request, response) => {
   }
   return response.setHeader("content-type", " application/json"); //to enviando no header q é um arquivo.json
 }
+ 
